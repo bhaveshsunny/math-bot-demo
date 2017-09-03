@@ -1,0 +1,86 @@
+#MBroot {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  margin: 0;
+  height: 100%;
+}
+
+.bots {
+  border-right: 1px solid black;
+  height: 100%;
+}
+
+.human {
+  height: 100%;
+}
+
+.output{
+  width: 100%;
+}
+.input {
+  width: 100%;
+}
+
+.message {
+  margin: 40px;
+  padding: 2em;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  border: 8px solid #666;
+  background-color: lightyellow;
+}
+
+.bot-bubble:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: -40px;
+	right: auto;
+  top: -8px;
+	bottom: auto;
+	border: 32px solid;
+	border-color: #666 transparent transparent transparent;
+}
+
+.bot-bubble:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: -20px;
+	right: auto;
+  top: 0px;
+	bottom: auto;
+	border: 22px solid;
+	border-color: lightyellow transparent transparent transparent;
+}
+
+.human-bubble:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -8px;
+	bottom: -40px;
+	border: 20px solid;
+	border-color: #666 #666 transparent transparent;
+}
+.human-bubble:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: 0px;
+	bottom: -20px;
+	border: 12px solid;
+	border-color: lightyellow lightyellow transparent transparent;
+}

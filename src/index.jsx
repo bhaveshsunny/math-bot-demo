@@ -12,14 +12,15 @@ export class MBroot extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {value: ''};
-
-    this.handleChange = this.handleChange.bind(this);
+    this.state = {bot: 0};
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  handleClick(i,event) {
+    var self = this;
+    self.setState(prevState => ({
+      bot: i
+    }));
   }
 
   handleSubmit(event) {
@@ -32,6 +33,9 @@ export class MBroot extends React.Component {
     return(
       <div className="container">
         <div className="col-lg-3 bots">
+          <div className="add"> <button onClick={this.handleClick.bind(this,0)} className={this.state.bot == 0 ? 'btn btn-success' : 'btn'}>ADD</button></div>
+          <div className="multipy"><button onClick={this.handleClick.bind(this,1)} className={this.state.bot == 1 ? 'btn btn-success' : 'btn'}>MULTIPLY</button></div>
+          <div className="subtract"><button onClick={this.handleClick.bind(this,2)} className={this.state.bot == 2 ? 'btn btn-success' : 'btn'}>SUBTRACT</button></div>
         </div>
         <div className="col-lg-9 human">
           <div className="row output">

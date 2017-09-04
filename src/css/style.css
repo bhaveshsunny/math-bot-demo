@@ -12,6 +12,13 @@
 .bots {
   border-right: 1px solid black;
   height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.bot {
+  margin: 15px;
 }
 
 .human {
@@ -20,20 +27,32 @@
 
 .output{
   width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: scroll;
 }
 .input {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 20vh;
+  padding: 10px;
 }
+
 
 .message {
   margin: 40px;
   padding: 2em;
   display: inline-block;
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
-  border: 8px solid #666;
-  background-color: lightyellow;
+  color:#ECECEC;
+  /*border: 8px solid #666;*/
+  background-color: #22313F;
 }
 
 .bot-bubble:before {
@@ -45,8 +64,8 @@
 	right: auto;
   top: -8px;
 	bottom: auto;
-	border: 32px solid;
-	border-color: #666 transparent transparent transparent;
+	/*border: 32px solid;
+	border-color: #666 transparent transparent transparent;*/
 }
 
 .bot-bubble:after{
@@ -59,7 +78,7 @@
   top: 0px;
 	bottom: auto;
 	border: 22px solid;
-	border-color: lightyellow transparent transparent transparent;
+	border-color: #22313F transparent transparent transparent;
 }
 
 .human-bubble:before {
@@ -70,8 +89,8 @@
   left: auto;
 	right: -8px;
 	bottom: -40px;
-	border: 20px solid;
-	border-color: #666 #666 transparent transparent;
+	/*border: 20px solid;
+	border-color: #666 #666 transparent transparent;*/
 }
 .human-bubble:after{
 	content: ' ';
@@ -82,5 +101,11 @@
 	right: 0px;
 	bottom: -20px;
 	border: 12px solid;
-	border-color: lightyellow lightyellow transparent transparent;
+	border-color: #22313F #22313F transparent transparent;
+}
+
+.inputform {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

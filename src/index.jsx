@@ -13,15 +13,20 @@ export class MBroot extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {bot: 0};
+    this.state = {
+      bot: 0,
+      output:[]
+    };
   }
 
   handleClick(i,event) {
-    this.setState({ bot: i });
+    this.state.bot = i;
+    this.setState({ bot: this.state.bot });
   }
 
 
   render(){
+    console.log("yo");
     return(
       <div className="container">
         <div className="col-lg-3 bots">
@@ -30,7 +35,7 @@ export class MBroot extends React.Component {
           <div className="subtract bot"><button onClick={this.handleClick.bind(this,2)} className={this.state.bot == 2 ? 'btn btn-success' : 'btn'}>SUBTRACT</button></div>
         </div>
         <div className="col-lg-9 col-md-9 col-sm-9 col-xs-9 human">
-          <Input bot={this.state.bot}/>
+          <Input bot={this.state.bot} output={this.state.output}/>
         </div>
       </div>
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Output } from './output.jsx';
 
 export class Input extends React.Component{
 
@@ -7,7 +8,7 @@ export class Input extends React.Component{
     this.state = {
       value: '',
       numbers: [],
-      output: [],
+      output: this.props.output,
       mode: this.props.bot
   };
 
@@ -21,8 +22,10 @@ export class Input extends React.Component{
   }
 
   componentWillReceiveProps(nextprops){
-    this.setState({mode:nextprops.bot});
-    console.log(this.state.mode);
+    this.state.mode = nextprops.bot;
+    this.state.output = [];
+    this.setState({value: parseInt(this.state.value)});
+    console.log(this.state.mode,this.state.output);
   }
 
 
@@ -31,6 +34,7 @@ export class Input extends React.Component{
     event.preventDefault();
     this.state.numbers.push(parseInt(this.state.value));
     this.state.output.push([parseInt(this.state.value),1]);
+    this.setState({value: parseInt(this.state.value)});
     if (this.state.numbers.length == 2){
       if(this.state.mode == 0){
         this.display(this.state.numbers[0]+this.state.numbers[1]);
@@ -49,14 +53,17 @@ export class Input extends React.Component{
     this.state.result = res;
     this.state.numbers = [];
     this.state.output.push([parseInt(this.state.result),0]);
-    console.log(this.state.result,this.state.output);
   }
 
   render(){
     return(
       <div>
         <div className="row output" id="out">
-
+          {
+            this.state.output.map((i,index) =>
+              <Output droid={i[1]} message={i[0]} key={index.toString()}/>
+            )
+          }
         </div>
         <div className="row input">
           <form onSubmit={this.handleSubmit.bind(this)}>
